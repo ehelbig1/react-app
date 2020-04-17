@@ -1,0 +1,24 @@
+{
+    "trigger": true,
+    "modules": [
+        "verification-link"
+    ],
+    "parentResource": "reactapp64221f39",
+    "functionName": "reactapp64221f39CustomMessage",
+    "resourceName": "reactapp64221f39CustomMessage",
+    "parentStack": "auth",
+    "triggerEnvs": [
+        {
+            "key": "RESOURCENAME",
+            "value": "resourceName"
+        }
+    ],
+    "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/CustomMessage",
+    "triggerTemplate": "CustomMessage.json.ejs",
+    "roleName": "reactapp64221f39CustomMessage",
+    "skipEdit": true,
+    "REDIRECTURL": "https://dont-forget.io/",
+    "EMAILSUBJECT": "Don't Forget Account Verification",
+    "EMAILMESSAGE": "Thank you for signing up! Please verify your email address.",
+    "RESOURCENAME": "resourceName"
+}

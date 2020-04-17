@@ -13,7 +13,20 @@
         },
         "categories": {
             "auth": {
-                "reactapp64221f39": {}
+                "reactapp64221f39": {
+                    "hostedUIProviderCreds": "[]"
+                }
+            },
+            "function": {
+                "reactapp64221f39CustomMessage": {
+                    "REDIRECTURL": "https://dont-forget.io/",
+                    "EMAILSUBJECT": "Don't Forget Account Verification",
+                    "EMAILMESSAGE": "Thank you for signing up! Please verify your email address."
+                },
+                "reactapp64221f39DefineAuthChallenge": {},
+                "reactapp64221f39VerifyAuthChallengeResponse": {
+                    "RECAPTCHASECRET": "secret"
+                }
             }
         }
     }

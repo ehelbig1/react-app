@@ -1,6 +1,6 @@
 {
     "identityPoolName": "reactapp64221f39_identitypool_64221f39",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "reacta64221f39",
     "userPoolName": "reactapp64221f39_userpool_64221f39",
     "autoVerifiedAttributes": [
@@ -14,22 +14,61 @@
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
-    "defaultPasswordPolicy": false,
+    "defaultPasswordPolicy": true,
     "passwordPolicyMinLength": 8,
-    "passwordPolicyCharacters": [],
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Uppercase",
+        "Requires Numbers",
+        "Requires Symbols"
+    ],
     "requiredAttributes": [
         "email"
     ],
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
+        "address",
+        "birthdate",
+        "family_name",
+        "middle_name",
+        "gender",
+        "locale",
+        "given_name",
+        "name",
+        "nickname",
+        "phone_number",
+        "preferred_username",
+        "picture",
+        "profile",
+        "updated_at",
+        "website",
+        "zoneinfo",
         "email"
     ],
     "userpoolClientReadAttributes": [
-        "email"
+        "address",
+        "birthdate",
+        "email",
+        "family_name",
+        "middle_name",
+        "gender",
+        "locale",
+        "given_name",
+        "name",
+        "nickname",
+        "phone_number",
+        "preferred_username",
+        "picture",
+        "profile",
+        "updated_at",
+        "website",
+        "zoneinfo",
+        "email_verified",
+        "phone_number_verified"
     ],
     "userpoolClientLambdaRole": "reacta64221f39_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": false,
+    "userpoolClientSetAttributes": true,
     "resourceName": "reactapp64221f39",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
@@ -44,10 +83,52 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
+    "useDefault": "manual",
     "usernameAttributes": [
         "email"
     ],
     "userPoolGroupList": [],
-    "dependsOn": []
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "reactapp64221f39CustomMessage",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "reactapp64221f39DefineAuthChallenge",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "reactapp64221f39VerifyAuthChallengeResponse",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        }
+    ],
+    "thirdPartyAuth": false,
+    "userPoolGroups": false,
+    "adminQueries": true,
+    "triggers": "{\"CustomMessage\":[\"verification-link\"],\"DefineAuthChallenge\":[\"captcha-define-challenge\"],\"VerifyAuthChallengeResponse\":[\"captcha-verify\"]}",
+    "hostedUI": true,
+    "hostedUIDomainName": "reactapp1dc40f29-1dc40f29",
+    "authProvidersUserPool": [],
+    "hostedUIProviderMeta": "[]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://dont-forget.io/\"],\"LogoutURLs\":[\"https://dont-forget.io/\"]}",
+    "verificationBucketName": "reactapp64221f39verificationbucket",
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": []
 }
